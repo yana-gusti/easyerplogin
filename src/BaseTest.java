@@ -12,7 +12,7 @@ public class BaseTest {
     public WebDriver driver;
     public String baseUrl = "https://live.easyerp.com";
     public String email = "yana.gusti@gmail.com";
-    public String password = "Julia2011!1";
+    public String password = "Julia2011!";
 
 
     @BeforeMethod
