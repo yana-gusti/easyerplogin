@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.InterruptedIOException;
@@ -12,6 +13,8 @@ public class Main extends BaseTest{
 
         LoginPage loginPage=new LoginPage();
         loginPage.login(driver,email,password);
+        Thread.sleep(5000);
+        Assert.assertEquals("https://live.easyerp.com/#easyErp/reportsDashboard", driver.getCurrentUrl());
 
     }
 }
