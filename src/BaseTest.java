@@ -11,7 +11,8 @@ import org.testng.annotations.BeforeMethod;
 public class BaseTest {
 
     public WebDriver driver;
-    public String baseUrl = "https://live.easyerp.com";
+    public String baseUrlLive = "https://live.easyerp.com";
+    public String baseUrlDemo = "https://demo.easyerp.com";
     public String email = "yana.gusti@gmail.com";
     public String password = "Julia2011!";
 
@@ -24,7 +25,7 @@ public class BaseTest {
         chrome_options.addArguments("--disable-gpu");
 
         driver = new ChromeDriver(chrome_options);
-        driver.get(baseUrl + "/#login");
+
     }
 
     @AfterMethod

@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by asus on 09.02.17.
  */
-public class LoginPage {
+public class LoginPage extends BaseTest{
 
 
-        public static void login(WebDriver driver, String email, String pass) throws InterruptedException {
+        public void loginLive(WebDriver driver, String email, String pass) throws InterruptedException {
+                driver.get(baseUrlLive + "/#login");
+
                 Thread.sleep(5000);
         driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).click();
         driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).clear();
@@ -19,6 +21,15 @@ public class LoginPage {
                 Thread.sleep(5000);
         driver.findElement(By.xpath(".//*[@id='loginTrigger']")).click();
     }
+        public void loginDemo(WebDriver driver, String email) throws InterruptedException {
+                driver.get(baseUrlDemo + "/#login");
+                Thread.sleep(5000);
+                driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).click();
+                driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).clear();
+                driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).sendKeys(email);
 
+                Thread.sleep(5000);
+                driver.findElement(By.xpath(".//*[@id='loginTrigger']")).click();
+        }
 
 }

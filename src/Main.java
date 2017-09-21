@@ -9,12 +9,22 @@ import java.io.InterruptedIOException;
 public class Main extends BaseTest{
 
     @Test
-    public void correctLogin() throws InterruptedIOException, InterruptedException {
+    public void correctLoginLive() throws InterruptedIOException, InterruptedException {
 
         LoginPage loginPage=new LoginPage();
-        loginPage.login(driver,email,password);
+        loginPage.loginLive(driver,email,password);
         Thread.sleep(5000);
         Assert.assertEquals("https://live.easyerp.com/#easyErp/reportsDashboard", driver.getCurrentUrl());
+
+    }
+
+    @Test
+    public void correctLoginDemo() throws InterruptedIOException, InterruptedException {
+
+        LoginPage loginPage=new LoginPage();
+        loginPage.loginDemo(driver,email);
+        Thread.sleep(5000);
+        Assert.assertEquals("https://demo.easyerp.com/#easyErp/dashboards", driver.getCurrentUrl());
 
     }
 }
