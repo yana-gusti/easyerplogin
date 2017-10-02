@@ -57,12 +57,11 @@ public class LoginPage extends BaseTest{
                 Thread.sleep(2000);
                 driver.findElement(By.xpath("html/body/section[1]/div/div[3]/div[2]/div[2]/div[1]/span/button")).click();
                 Thread.sleep(2000);
-                Assert.assertEquals("1", driver.findElement(By.xpath(".//*[@id='InboxCtrl']/section/div/div[2]/ul/li/ul/li[1]/div/div[2]")).getText());
+
+                Assert.assertEquals("New registration", driver.findElement(By.id("inboxpane")).findElement(By.xpath("./li/div/div[4]")).getText());
                 Thread.sleep(2000);
                 driver.findElement(By.className("all_message-min")).findElement(By.xpath("./div/i[2]")).click();
                 driver.findElement(By.xpath(".//*[@id='status_bar']/div[5]/span[3]/i[2]")).click();
-                Thread.sleep(2000);
-                Assert.assertEquals("0", driver.findElement(By.xpath(".//*[@id='InboxCtrl']/section/div/div[2]/ul/li/ul/li[1]/div/div[2]")).getText());
 
 
         }
