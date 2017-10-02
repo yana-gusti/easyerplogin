@@ -1,5 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 /**
  * Created by asus on 09.02.17.
@@ -14,11 +17,11 @@ public class LoginPage extends BaseTest{
         driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).click();
         driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).clear();
         driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).sendKeys(email);
-                Thread.sleep(5000);
+                Thread.sleep(2000);
         driver.findElement(By.xpath(".//*[@id='upass']")).click();
         driver.findElement(By.xpath(".//*[@id='upass']")).clear();
         driver.findElement(By.xpath(".//*[@id='upass']")).sendKeys(pass);
-                Thread.sleep(5000);
+                Thread.sleep(2000);
         driver.findElement(By.xpath(".//*[@id='loginTrigger']")).click();
     }
         public void loginDemo(WebDriver driver, String email) throws InterruptedException {
@@ -28,8 +31,39 @@ public class LoginPage extends BaseTest{
                 driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).clear();
                 driver.findElement(By.xpath(".//*[@id='loginForm']/div[1]/div/div/input")).sendKeys(email);
 
-                Thread.sleep(5000);
+                Thread.sleep(2000);
                 driver.findElement(By.xpath(".//*[@id='loginTrigger']")).click();
         }
 
+        public void resendVerifyDemo(WebDriver driver) throws InterruptedException {
+                driver.get(baseUrlDemo + "/#login");
+                Thread.sleep(5000);
+                driver.findElement(By.xpath(".//*[@id='forgotPass']")).click();
+                driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).click();
+                driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).clear();
+                driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).sendKeys("easyerpverify@mailinator.com");
+                Thread.sleep(2000);
+                driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[2]/a[2]")).click();
+
+                WebDriverWait wait = new WebDriverWait(driver, 5000);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='errorHandler']/div")));
+                Assert.assertEquals("Verification link was sent to your email. Please check it", driver.findElement(By.xpath(".//*[@id='errorHandler']/div")).getText());
+
+                driver.get("https://www.mailinator.com/");
+                Thread.sleep(5000);
+                driver.findElement(By.xpath(".//*[@id='inboxfield']")).click();
+                driver.findElement(By.xpath(".//*[@id='inboxfield']")).clear();
+                driver.findElement(By.xpath(".//*[@id='inboxfield']")).sendKeys("easyerpverify@mailinator.com");
+                Thread.sleep(2000);
+                driver.findElement(By.xpath("html/body/section[1]/div/div[3]/div[2]/div[2]/div[1]/span/button")).click();
+                Thread.sleep(2000);
+                Assert.assertEquals("1", driver.findElement(By.xpath(".//*[@id='InboxCtrl']/section/div/div[2]/ul/li/ul/li[1]/div/div[2]")).getText());
+                Thread.sleep(2000);
+                driver.findElement(By.className("all_message-min")).findElement(By.xpath("./div/i[2]")).click();
+                driver.findElement(By.xpath(".//*[@id='status_bar']/div[5]/span[3]/i[2]")).click();
+                Thread.sleep(2000);
+                Assert.assertEquals("0", driver.findElement(By.xpath(".//*[@id='InboxCtrl']/section/div/div[2]/ul/li/ul/li[1]/div/div[2]")).getText());
+
+
+        }
 }

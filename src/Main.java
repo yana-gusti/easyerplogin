@@ -27,4 +27,12 @@ public class Main extends BaseTest{
         Assert.assertEquals("https://demo.easyerp.com/#easyErp/dashboards", driver.getCurrentUrl());
 
     }
+
+    @Test
+    public void resendVerifyDemo() throws InterruptedIOException, InterruptedException {
+
+        LoginPage loginPage=new LoginPage();
+        loginPage.resendVerifyDemo(driver);
+
+    }
 }
