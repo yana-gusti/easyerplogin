@@ -41,7 +41,7 @@ public class LoginPage extends BaseTest{
                 driver.findElement(By.xpath(".//*[@id='forgotPass']")).click();
                 driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).click();
                 driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).clear();
-                driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).sendKeys("easyerpverify@mailinator.com");
+                driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[1]/div/div/div/input")).sendKeys("easyerptestpro@mailinator.com");
                 Thread.sleep(2000);
                 driver.findElement(By.xpath(".//*[@id='forgotPassword']/div[2]/a[2]")).click();
 
@@ -53,7 +53,7 @@ public class LoginPage extends BaseTest{
                 Thread.sleep(5000);
                 driver.findElement(By.xpath(".//*[@id='inboxfield']")).click();
                 driver.findElement(By.xpath(".//*[@id='inboxfield']")).clear();
-                driver.findElement(By.xpath(".//*[@id='inboxfield']")).sendKeys("easyerpverify@mailinator.com");
+                driver.findElement(By.xpath(".//*[@id='inboxfield']")).sendKeys("easyerptestpro@mailinator.com");
                 Thread.sleep(2000);
                 driver.findElement(By.xpath("html/body/section[1]/div/div[3]/div[2]/div[2]/div[1]/span/button")).click();
                 Thread.sleep(2000);
@@ -64,5 +64,9 @@ public class LoginPage extends BaseTest{
                 driver.findElement(By.xpath(".//*[@id='status_bar']/div[5]/span[3]/i[2]")).click();
 
 
+        }
+
+        public void forgotPassLive(){
+                
         }
 }
