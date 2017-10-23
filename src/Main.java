@@ -24,7 +24,7 @@ public class Main extends BaseTest{
         LoginPage loginPage=new LoginPage();
         loginPage.loginDemo(driver,email);
         Thread.sleep(5000);
-        Assert.assertEquals("https://demo.easyerp.com/#easyErp/dashboards", driver.getCurrentUrl());
+        Assert.assertEquals("https://demo.easyerp.com/#easyErp/reportsDashboard", driver.getCurrentUrl());
 
     }
 
