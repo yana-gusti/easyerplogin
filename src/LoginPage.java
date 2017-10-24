@@ -14,9 +14,9 @@ public class LoginPage extends BaseTest{
                 driver.get(baseUrlLive + "/#login");
 
                 Thread.sleep(5000);
-        driver.findElement(By.className("ulogin")).click();
-        driver.findElement(By.className("ulogin")).clear();
-        driver.findElement(By.className("ulogin")).sendKeys(email);
+        driver.findElement(By.className("loginWrap")).findElement(By.xpath("./div/div/div/input")).click();
+        driver.findElement(By.className("loginWrap")).findElement(By.xpath("./div/div/div/input")).clear();
+        driver.findElement(By.className("loginWrap")).findElement(By.xpath("./div/div/div/input")).sendKeys(email);
                 Thread.sleep(2000);
         driver.findElement(By.xpath(".//*[@id='upass']")).click();
         driver.findElement(By.xpath(".//*[@id='upass']")).clear();
