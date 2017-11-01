@@ -18,21 +18,21 @@ public class Main extends BaseTest{
 
     }
 
-    @Test
-    public void correctLoginDemo() throws InterruptedIOException, InterruptedException {
-
-        LoginPage loginPage=new LoginPage();
-        loginPage.loginDemo(driver,email);
-        Thread.sleep(5000);
-        Assert.assertEquals("https://demo.easyerp.com/#easyErp/reportsDashboard", driver.getCurrentUrl());
-
-    }
-
-    @Test
-    public void resendVerifyDemo() throws InterruptedIOException, InterruptedException {
-
-        LoginPage loginPage=new LoginPage();
-        loginPage.resendVerifyDemo(driver);
-
-    }
+//    @Test
+//    public void correctLoginDemo() throws InterruptedIOException, InterruptedException {
+//
+//        LoginPage loginPage=new LoginPage();
+//        loginPage.loginDemo(driver,email);
+//        Thread.sleep(5000);
+//        Assert.assertEquals("https://demo.easyerp.com/#easyErp/reportsDashboard", driver.getCurrentUrl());
+//
+//    }
+//
+//    @Test
+//    public void resendVerifyDemo() throws InterruptedIOException, InterruptedException {
+//
+//        LoginPage loginPage=new LoginPage();
+//        loginPage.resendVerifyDemo(driver);
+//
+//    }
 }
