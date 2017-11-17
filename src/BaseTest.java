@@ -14,7 +14,7 @@ public class BaseTest {
     public String baseUrlLive = "https://live.easyerp.com";
     public String baseUrlDemo = "https://demo.easyerp.com";
     public String email = "yana.gusti@gmail.com";
-    public String password = "Julia2011!";
+    public String password = "P9gm8b9uy";
 
 
     @BeforeMethod
